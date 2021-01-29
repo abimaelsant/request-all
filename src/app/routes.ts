@@ -13,7 +13,7 @@ routes.post('/login', authController.login);
 routes.use(AuthMidlleware);
 
 routes.post('/requestsAWS', requestController.store);
-routes.post('/requestsAll', requestController.store);
+routes.post('/requestsAll', requestController.storeAll);
 
 routes.get('/requests-aws', requestController.index);
 
