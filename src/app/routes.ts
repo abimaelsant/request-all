@@ -10,7 +10,7 @@ const authController = new AuthController();
 
 routes.post('/login', authController.login);
 
-routes.use(AuthMidlleware);
+//routes.use(AuthMidlleware);
 
 routes.post('/requestsAWS', requestController.store);
 routes.post('/requestsAll', requestController.store);
