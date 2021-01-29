@@ -46,6 +46,7 @@ class CollectController {
             headers: { 'Content-Type': 'application/json' }
         })
 
+        //google
         const resCollectGoogle = await fetch('http://34.66.26.218:3334/collects', {
             method: 'post',
             body: JSON.stringify(collect),
@@ -61,6 +62,7 @@ class CollectController {
         return response.status(201).json({
             user: await resUser.json(),
             recycling: await resRecycling.json(),
+            collectGoogle: await resCollectGoogle.json(),
             collect: await resCollect.json()
         })
     }
