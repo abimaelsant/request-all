@@ -1,0 +1,30 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var RecycledProductController_1 = require("./controller/RecycledProductController");
+var CollectController_1 = require("./controller/CollectController");
+var AuthController_1 = require("./controller/AuthController");
+var UserController_1 = require("./controller/UserController");
+var auth_1 = require("./middlewares/auth");
+var routes = express_1.Router();
+var recycledProductController = new RecycledProductController_1.default();
+var collectController = new CollectController_1.default();
+var authController = new AuthController_1.default();
+var userController = new UserController_1.default();
+routes.get('/', function (request, response) {
+    return response.json({ message: 'Hello World!' });
+});
+routes.post('/users', userController.store);
+routes.post('/login', authController.login);
+routes.use(auth_1.default);
+routes.get('/recycled-products', recycledProductController.index);
+routes.get('/recycled-products/:id', recycledProductController.show);
+routes.post('/recycled-products', recycledProductController.store);
+routes.put('/recycled-products/:id', recycledProductController.update);
+routes.get('/collects', collectController.index);
+routes.get('/collects/:id', collectController.show);
+routes.post('/collects', collectController.store);
+routes.get('/collects/recycled-products/all', collectController.indexRecycledProducts);
+routes.get('/users', userController.show);
+exports.default = routes;
+//# sourceMappingURL=routes.js.map
