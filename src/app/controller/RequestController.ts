@@ -70,8 +70,13 @@ class CollectController {
     async index(request: Request, response: Response) {
         let list = []
         const { qtde } : any = request.query
+        await fetch('http://ec2-3-15-159-133.us-east-2.compute.amazonaws.com:8081/login', {
+            method: 'post',
+            body: JSON.stringify({ email: 'teste@email.com', password: '123456' }),
+            headers: { 'Content-Type': 'application/json' }
+        })
         for (let i = 0; i < qtde; i++) {
-            const resCollect = await fetch('http://ec2-3-15-159-133.us-east-2.compute.amazonaws.com:8083/collects', {
+            let resCollect = await fetch('http://ec2-3-15-159-133.us-east-2.compute.amazonaws.com:8083/collects', {
                 method: 'get',
                 headers: { 'Content-Type': 'application/json' }
             })
@@ -79,19 +84,53 @@ class CollectController {
             for (let item of data) {
                 list.push(item)
             }
+            resCollect = await fetch('http://ec2-3-15-159-133.us-east-2.compute.amazonaws.com:8083/collects', {
+                method: 'get',
+                headers: { 'Content-Type': 'application/json' }
+            })
+            data = await resCollect.json()
+            for (let item of data) {
+                list.push(item)
+            }
+            resCollect = await fetch('http://ec2-3-15-159-133.us-east-2.compute.amazonaws.com:8083/collects', {
+                method: 'get',
+                headers: { 'Content-Type': 'application/json' }
+            })
+            data = await resCollect.json()
+            for (let item of data) {
+                list.push(item)
+            }
         }
         return response.json(list)
     }
 
-    async indexGoogle(request: Request, response: Response) {
+    async indexAll(request: Request, response: Response) {
         let list = []
         const { qtde } : any = request.query
         for (let i = 0; i < qtde; i++) {
-            const resCollect = await fetch('http://34.66.26.218:3334/collects', {
+            let resCollect = await fetch('http://34.66.26.218:3334/collects', {
                 method: 'get',
                 headers: { 'Content-Type': 'application/json' }
             })
             let data = await resCollect.json()
+            for (let item of data) {
+                list.push(item)
+            }
+
+            resCollect = await fetch('http://40.84.227.136:3333/collects', {
+                method: 'get',
+                headers: { 'Content-Type': 'application/json' }
+            })
+            data = await resCollect.json()
+            for (let item of data) {
+                list.push(item)
+            }
+
+            resCollect = await fetch('http://ec2-3-15-159-133.us-east-2.compute.amazonaws.com:8083/collects', {
+                method: 'get',
+                headers: { 'Content-Type': 'application/json' }
+            })
+            data = await resCollect.json()
             for (let item of data) {
                 list.push(item)
             }

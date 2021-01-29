@@ -17,7 +17,7 @@ routes.post('/requestsAll', requestController.storeAll);
 
 routes.get('/requests-aws', requestController.index);
 
-routes.get('/requests-google', requestController.indexGoogle);
+routes.get('/requests-all', requestController.indexAll);
 routes.get('/requests-azure', requestController.indexAzure);
 
 export default routes;
