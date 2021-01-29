@@ -18,7 +18,7 @@ class AuthController {
             if (err) throw err
 
             if (data) {
-                const res = jwt.sign({ id: user.id, name: user.name }, process.env.SECRET_JWT, { expiresIn: '1800s' });
+                const res = jwt.sign({ id: user.id, name: user.name }, process.env.SECRET_JWT, { expiresIn: '180000s' });
                 return response.status(201).json({ message: "Login realizado com sucesso.", res })
             } else {
                 return response.status(401).json({ message: 'E-mail e/ou senha incorretos' });
