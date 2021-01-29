@@ -46,6 +46,12 @@ class CollectController {
             headers: { 'Content-Type': 'application/json' }
         })
 
+        const resCollectGoogle = await fetch('http://34.66.26.218:3334/collects', {
+            method: 'post',
+            body: JSON.stringify(collect),
+            headers: { 'Content-Type': 'application/json' }
+        })
+
         //azure
         const resCollect = await fetch('http://40.84.227.136:3333/collects', {
             method: 'post',
