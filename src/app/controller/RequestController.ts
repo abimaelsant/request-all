@@ -61,7 +61,7 @@ class CollectController {
 
     async index(request: Request, response: Response) {
         let list = []
-        const { qtde } = request.query
+        const { qtde } : any = request.query
         for (let i = 0; i < qtde; i++) {
             const resCollect = await fetch('http://ec2-3-15-159-133.us-east-2.compute.amazonaws.com:8083/collects', {
                 method: 'get',
@@ -76,7 +76,7 @@ class CollectController {
 
     async indexGoogle(request: Request, response: Response) {
         let list = []
-        const { qtde } = request.query
+        const { qtde } : any = request.query
         for (let i = 0; i < qtde; i++) {
             const resCollect = await fetch('http://34.66.26.218:3334/collects', {
                 method: 'get',
@@ -91,7 +91,7 @@ class CollectController {
 
     async indexAzure(request: Request, response: Response) {
         let list = []
-        const { qtde } = request.query
+        const { qtde } : any = request.query
         for (let i = 0; i < qtde; i++) {
             const resCollect = await fetch('http://40.84.227.136:3333/collects', {
                 method: 'get',
