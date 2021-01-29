@@ -33,7 +33,7 @@ class CollectController {
         const { user, recycling, collect } = request.body
 
         //aws
-        const resUser = await fetch('http://ec2-3-15-159-133.us-east-2.compute.amazonaws.com:3335/users', {
+        const resUser = await fetch('http://ec2-3-15-159-133.us-east-2.compute.amazonaws.com:8081/users', {
             method: 'post',
             body: JSON.stringify(user),
             headers: { 'Content-Type': 'application/json' }
