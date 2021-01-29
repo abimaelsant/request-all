@@ -72,6 +72,7 @@ class CollectController {
                 list.push(item)
             }
         }
+        return response.json(list)
     }
 
     async indexGoogle(request: Request, response: Response) {
@@ -87,6 +88,8 @@ class CollectController {
                 list.push(item)
             }
         }
+
+        return response.json(list)
     }
 
     async indexAzure(request: Request, response: Response) {
@@ -102,6 +105,7 @@ class CollectController {
                 list.push(item)
             }
         }
+        return response.json(list)
     }
 }
 

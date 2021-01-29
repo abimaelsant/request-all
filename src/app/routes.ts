@@ -17,7 +17,7 @@ routes.post('/requestsAll', requestController.store);
 
 routes.get('/requests-aws', requestController.index);
 
-routes.get('/requests-cinquenta-google', requestController.indexGoogle);
-routes.get('/requests-cem-azure', requestController.indexAzure);
+routes.get('/requests-google', requestController.indexGoogle);
+routes.get('/requests-azure', requestController.indexAzure);
 
 export default routes;
